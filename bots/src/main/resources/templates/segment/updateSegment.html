@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.orf"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+<title>Bots</title>
+<!-- Required meta tags -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark primary-color"
+		style="background-color: #000">
+		<a class="navbar-brand" href="/">Home</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Bots</a>
+					<div class="dropdown-menu dropdown-primary"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="/bot">Lista</a>
+					</div></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Segmento</a>
+					<div class="dropdown-menu dropdown-primary"
+						aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="/segment">Lista</a>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+
+
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" style="margin-top: 100px;">
+				<h1>Atualizacao de Segmento</h1>
+			</div>
+			<div class="col-sm-12" style="padding: 10px; margin-top: 25px;">
+
+				<form method="post" action="" th:each="segment : ${segments}">
+					<div class="form-group">
+						<label for="exampleFormControlSelect1">Selecione o bot</label> <select
+							class="form-control" id="bot" th:for="*{bots}" name="bot">
+							<option selected="selected" th:each="bots : ${bots}"
+								th:value="*{bots.id_bot}" th:text="${bots.name}">
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Nome do Segmento </label> <input
+							type="text" class="form-control" id="name" placeholder="nome"
+							th:value="*{segment.name}" name="name">
+					</div>
+
+
+					<button type="submit" class="btn btn-primary">Update</button>
+				</form>
+
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
